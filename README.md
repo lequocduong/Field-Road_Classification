@@ -1,6 +1,6 @@
 # Field-Road_Classification
 
-Classifies an image as containing either the road or the field (using field-road dataset <a href="https://drive.google.com/file/d/1pOKhKzIs6-oXv3SlKrzs0ItHI34adJsT/view">public dataset</a>), but could easily be extended to other image classification problems.
+Classifies an image as containing either the road or the field (using  <a href="https://drive.google.com/file/d/1pOKhKzIs6-oXv3SlKrzs0ItHI34adJsT/view">field-road dataset</a>), but could easily be extended to other image classification problems.
 
 ### Dependencies:
 - PyTorch / Torchvision
