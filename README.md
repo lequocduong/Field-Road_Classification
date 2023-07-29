@@ -17,7 +17,7 @@ The data directory structure I used was:
     * train
       * roads
       * fields
-    * vali
+    * valil
       * roads
       * fields
     * test
