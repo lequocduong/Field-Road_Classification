@@ -14,14 +14,14 @@ The data directory structure I used was:
 
 * project
   * dataset
-    * train
-      * roads
-      * fields
-    * valil
-      * roads
-      * fields
-    * test
-    * arb
+  * train
+    * roads
+    * fields
+  * valil
+    * roads
+    * fields
+  * test
+  * arb
 
 
 ## Performance
