@@ -5,3 +5,5 @@ opencv_python == 4.7.0
 matplotlib == 3.7.1
 tqdm == 0.4.6
 python-math
+albumentations --user
+-U scikit-learn
