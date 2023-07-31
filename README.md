@@ -7,7 +7,10 @@ Classifies an image as containing either the road or the field (using  <a href="
 - Numpy
 - Pandas
 - CUDA
-- etc... 
+- etc...
+```bash
+pip install -r requirements.txt
+```
 ## Data
 
 The data directory structure I used was:
