@@ -5,12 +5,15 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 # Define the model
-class MODEL(nn.Module):
-    '''
+class MODEL(nn.Module):    
+    '''    
+    Classical Model 
     The simple Model Th input (16,3,128,128)
     2x Conv+BN+MP(feature extraction) + 2xFCL(classifier)
-
-    '''
+    ----------
+    Example:
+    model = MODEL()
+    '''       
     def __init__(self):
         super(MODEL, self).__init__()
         # 1st CNN layer
@@ -47,10 +50,14 @@ class MODEL(nn.Module):
         return x
 
 class pretrainedUsedMODEL(nn.Module):
-    '''
+    ''' 
     Using the Pretrained Model (Vgg16)
     Unfreeze the last layer ConV
-    Replace classifer with 2 FCN    
+    Replace classifer with 2 FCN 
+    ----------
+    Example:
+    model = pretrainedUsedMODEL()
+       
     '''
     def __init__(self):
         super(pretrainedUsedMODEL, self).__init__()

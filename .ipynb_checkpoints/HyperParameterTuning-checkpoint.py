@@ -6,12 +6,23 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 
 def HyperparameterTuning(init_lr,max_lr,num):
-  '''
-  init_lr = 1e-5
-  max_lr =  1e-3
-  num=     100
-  HyperparameterTuning(init_lr,max_lr,num)
-  '''
+    '''    
+    Tunning the Hyperparameter for Training process
+    ----------
+    Attributes:
+    init_lr : float
+        initiated value
+    max_lr: float
+        max value
+    num: int 
+        the number of values
+    ----------
+    Example:
+    init_lr = 1e-5
+    max_lr =  1e-3
+    num=     100
+    HyperparameterTuning(init_lr,max_lr,num)
+    '''    
   # Define hyperparameter space for grid search
   param_grid = {
       'learning_rate': list(np.linspace(init_lr,max_lr,num)),     

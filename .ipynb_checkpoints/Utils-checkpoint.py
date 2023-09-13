@@ -14,9 +14,20 @@ def load_checkpoint(checkpoint, model):
   print("=> Loading checkpoint")
   model.load_state_dict(checkpoint["state_dict"])
 
-def check_accuracy(loader, model, device="cuda"):
-  '''
-  check_accuracy(val_loader, model, DEVICE)
+def check_accuracy(loader, model, device="cuda"):  
+  '''    
+    Check accuracy 
+    ----------
+    Attributes:
+    loader : DataLoader
+    model : pytorch model
+    device : using GPU
+    ----------
+    Returns:    
+    acc: accuracy value
+    ----------
+    Example:
+    check_accuracy(val_loader, model, DEVICE)
   '''
   num_correct = 0
   num_samples = 0
@@ -42,14 +53,31 @@ def check_accuracy(loader, model, device="cuda"):
   return acc
 
 def make_prediction(model, transform, root_dir,originalLabel, device,name_file,save=True):
-  '''
-  original_dataset_dir = '/content/drive/MyDrive/Example/Trimble_dataset/'
-  root_dir = original_dataset_dir + 'test'
-  originalLabel = np.array([1,1,1,1,1,1,0,0,0,0])
-  name_file = 'Model'
-  make_prediction(model, transform, root_dir, DEVICE,name_file,save=True)
-  The last procedure - print out the csv containing the classification
-  '''
+    '''    
+    Predict the data
+    ----------
+    Attributes:
+    model : trained model
+    transform: original transform method
+    root_dir: root directory
+    originalLabel: original label
+    device: gpu of cpu
+    name_file: list of files
+    save: bool, default:True
+    ----------
+    Returns:    
+    df: pd.DataFrame
+        Result DataFrame
+    ----------
+    Example:
+    fields = data_extractor(data_path,classList[0])
+    original_dataset_dir = '/content/drive/MyDrive/Example/Trimble_dataset/'
+    root_dir = original_dataset_dir + 'test'
+    originalLabel = np.array([1,1,1,1,1,1,0,0,0,0])
+    name_file = 'Model'
+    make_prediction(model, transform, root_dir, DEVICE,name_file,save=True)
+    The last procedure - print out the csv containing the classification
+    '''
   def threshold(x):
     if x>0.5:
       res = 1
@@ -88,10 +116,29 @@ def make_prediction(model, transform, root_dir,originalLabel, device,name_file,s
   return df
 
 def ResultPlot(val_acc,train_acc,train_loss,val_loss,NUM_EPOCHS,name_fig,save=False):
-  '''
-  name_fig = 'Model'
-  ResultPlot(val_acc,train_acc,train_loss,val_loss,NUM_EPOCHS,save=False)
-  '''
+    '''    
+    Plot the result
+    ----------
+    Attributes:
+    val_acc: list
+        validation accuracy
+    train_acc: list
+        training accuracy
+    train_loss: list
+        loss of trainning set
+    val_loss: list
+        loss of validation set
+    NUM_EPOCHS: int
+        the number of iteration
+    name_fig: str
+        name of figure
+    save: bool, default:False
+        save or not
+    ----------
+    Example:
+    name_fig = 'Model'
+    ResultPlot(val_acc,train_acc,train_loss,val_loss,NUM_EPOCHS,save=False)
+    '''
   num_epochs = [i for i in range(NUM_EPOCHS)]
   title0= 'The Model Accuracy'
   title1= 'The Model Loss'

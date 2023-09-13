@@ -3,12 +3,23 @@ import os
 import cv2
 from torch.utils.data import Dataset
 class FieldRoadDataset(Dataset):
-    '''
-    root_dir : root directory
-    transform: transform method
+    '''    
+    Generate DataLoader 
+    ----------
+    Attributes:
+    root_dir : str
+        root directory
+    transform: default: None
+        transform method
+    class_names: list
+        List of classes
+    ----------
+    Returns:    
+    DataLoader contains image and label
+    ----------
+    Example:
     val_ds = FieldRoadDataset(val_root_dir,val_transform)
-    train_ds = FieldRoadDataset(train_root_dir,train_transform)
-    
+    train_ds = FieldRoadDataset(train_root_dir,train_transform)       
     '''
     def __init__(self, root_dir, transform=None):
         super(FieldRoadDataset, self).__init__

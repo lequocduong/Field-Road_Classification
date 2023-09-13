@@ -6,13 +6,26 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 def train_fn(loader, model, optimizer, loss_fn, scaler,device):
-    '''
+    '''   
     Training process
+    ----------
+    Attributes:
+    loader : DataLoader        
+    model: untrained model
+    optimizer: optimizer method
+    loss_fn: loss function 
+    scaler: scaler method
+    device: cpu or gpu  
+    ----------
+    Returns:    
+    running_loss: float
+        the value of loss function
+    ----------    
+    Example:    
     model = MODEL().to(DEVICE)
     loss_fn = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
     scaler = torch.cuda.amp.GradScaler()
-
     for epoch in range(NUM_EPOCHS):
       train_fn(trainLoader, model, optimizer, loss_fn, scaler,DEVICE)
     '''
@@ -45,14 +58,23 @@ def train_fn(loader, model, optimizer, loss_fn, scaler,device):
 
 def val_fn(loader, model, loss_fn,device):
     '''
-    Training process
+    Validation process
+    ----------
+    Attributes:
+    loader : DataLoader        
+    model: untrained model    
+    loss_fn: loss function    
+    device: cpu or gpu  
+     ----------
+    Returns:    
+    running_loss: float
+        the value of loss function
+    ----------
+    Example: 
     model = MODEL().to(DEVICE)
-    loss_fn = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
-    scaler = torch.cuda.amp.GradScaler()
-
+    loss_fn = nn.CrossEntropyLoss()   
     for epoch in range(NUM_EPOCHS):
-      train_fn(trainLoader, model, optimizer, loss_fn, scaler,DEVICE)
+      val_fn(valLoader, model, optimizer, loss_fn, scaler,DEVICE)
     '''
     model.eval()
     running_loss =0

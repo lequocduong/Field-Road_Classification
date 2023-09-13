@@ -6,17 +6,45 @@ import matplotlib.pyplot as plt
 import os
 import math
 def data_extractor(data_path,Class):
-    """
+    '''    
+    Extracting all name of the  "Class" in data_path
+    ----------
+    Attributes:
+    data_path : str
+        file repository
+    Class: str
+        Specified class
+    ----------
+    Returns:    
+    file: List
+    ----------
+    Example:
     fields = data_extractor(data_path,classList[0])
-    """
+    '''    
     all_names = os.listdir(data_path + Class + '/')
     image_names = [el for el in all_names ]
     file = []
     for img in image_names:
         file.append(data_path + Class+ '/' + img)
     return file
-def Extract_Img_Info(Class):
-    '''
+
+def Extract_Img_Info(Class):    
+    '''    
+    Extracting information of the Image corressponding to the "Class"
+    ----------
+    Attributes:    
+    Class: str
+        Specified class
+    ----------
+    Returns:    
+    nameList: List
+        List of names
+    imgshapeList: List
+        List of image shapes
+    imList: List
+        List of image array
+    ----------
+    Example:   
     nameList, imgshapeList, imList = Extract_Img_Info(fields)
     '''
     imList=[]
@@ -28,6 +56,7 @@ def Extract_Img_Info(Class):
         imgshapeList.append(img.shape)
         nameList.append(img_path.split('/')[1] + '-' +img_path.split('/')[2].split('.')[0])
     return nameList , imgshapeList , imList
+
 def LabelExtraction(name,numLabel=True):
     '''
     Apply in the DataFrame
@@ -44,10 +73,23 @@ def LabelExtraction(name,numLabel=True):
     return label
 
 def DataGenerator(data_path, classList, savePath,save=True):
-    '''
+    '''    
     Generate the .csv file for the dataset
-    df = DataGenerator(data_path, classList, savePath)
-    df_raw = pd.read_pickle(savePath+'dataset_raw.pkl')
+    ----------
+    Attributes:    
+    data_path: str
+        data repository
+    classList: list
+    savePath: str
+        save repository
+    save: bool, default:True
+        save or not
+    ----------
+    Returns:    
+    df: pd.DataFrame
+    ----------
+    Example:   
+    df = DataGenerator(data_path, classList, savePath)    
     '''
     df = pd.DataFrame()
     for category in classList:
@@ -92,8 +134,19 @@ def LabelExtraction(name,numLabel=True):
     return label
 def DataPreprocessing(df_raw,save=True):
     '''
-    df = DataPreprocessing(df_raw)
-    df = pd.read_pickle(savePath+'dataset_raw.pkl')
+    Preprocess data (Resize, Normalize, Image shaping)
+    ----------
+    Attributes:    
+    df_raw: pd.DataFrame
+        raw data    
+    save: bool, default:True
+        save or not
+    ----------
+    Returns:    
+    df: pd.DataFrame
+    ----------
+    Example:          
+    df = DataPreprocessing(df_raw)    
     '''
     # reshape
     df_raw['Img_Info_R'] = df_raw['Img_Info'].apply(Resize)
