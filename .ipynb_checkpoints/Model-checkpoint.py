@@ -4,6 +4,7 @@ import torchvision
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
+
 # Define the model
 class MODEL(nn.Module):    
     '''    
@@ -99,5 +100,5 @@ def test_model():
   print(preds.shape)
   #assert preds.shape == x.shape
   
-if __name__ == "__init__":
+if __name__ == "__main__":
   test_model()

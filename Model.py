@@ -100,5 +100,5 @@ def test_model():
   print(preds.shape)
   #assert preds.shape == x.shape
   
-if __name__ == "__init__":
+if __name__ == "__main__":
   test_model()
